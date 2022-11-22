@@ -1,11 +1,12 @@
 <template>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
-      <v-icon color='accent'
-        x-large
+      <h1 class="text-h2 font-weight-bold">Water Tracker</h1>
+       <v-icon   style="font-size:7rem"
+ color='accent' 
       >mdi-cup-water
       </v-icon>
-      <h1 class="text-h2 font-weight-bold">Water Tracker</h1>
+     
       <h3>Track how much you drank today!</h3>
       <p>You drank {{water}} today.</p>
       <v-btn   color="primary"
@@ -29,9 +30,10 @@ function drink() {
 
 <style>
 h1 {
-  margin: 2rem;
+  margin: 2.5rem;
 }
-h1, p {
+h3, p {
   margin: 1rem;
 }
+
 </style>
