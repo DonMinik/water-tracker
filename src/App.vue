@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-main >
-    {{navigationState}}
+
       <v-app-bar elevation="2">  
-        <Menu  @select='(event) => selectNavigation(event)'/> 
+        <Menu  :state="navigationState" @select='selectNavigation'/> 
       </v-app-bar>
-      <WaterTracking v-if='navigationState=== NavigationState.HOME'/>
-     <Settings v-if='navigationState=== NavigationState.SETTINGS'/> 
-      <EditTrackings v-if='navigationState=== NavigationState.EDIT_TRACKINGS' /> 
+      <WaterTracking v-if="navigationState === NavigationState.HOME"/>
+      <Settings v-if="navigationState === NavigationState.SETTINGS"/> 
+      <EditTrackings v-if='navigationState === NavigationState.EDIT_TRACKINGS' /> 
     </v-main>
   </v-app>
 </template>
@@ -24,10 +24,7 @@ import {NavigationState} from '@/utils/navigation.types.ts'
 
 let navigationState = ref(NavigationState.HOME);
 
-function selectNavigation(event) {
-  debugger
-  console.log('selectNavigation', event)
-  navigationState = event
-  console.log('new nav state', navigationState)
+function selectNavigation(event: NavigationState) {
+  navigationState.value = event
 }
 </script>
