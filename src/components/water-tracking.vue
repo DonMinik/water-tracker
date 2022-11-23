@@ -33,7 +33,7 @@ function drink() {
 
 function updateDate() {
   const now = today();
-  if (today.toDateString() !== now.toDateString()) {
+  if (date.toDateString() !== now.toDateString()) {
     date = now;
    water = dailyWaterStorage();
   }

@@ -1,7 +1,7 @@
 //by https://lorisleiva.com/gists/abstract-local-storage-in-vue-3
-import { customRef } from 'vue'
+import { customRef, Ref } from 'vue'
 
-export default function (key: string, defaultValue: unknown) {
+export default function (key: string, defaultValue: unknown):Ref {
     return customRef((track, trigger) => ({
         get: () => {
             track()
