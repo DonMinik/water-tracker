@@ -2,16 +2,17 @@
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
 
-      <h1 class="text-h2 font-weight-bold">Water Tracker</h1>
-       <v-icon   style="font-size:7rem;" color='accent' >mdi-cup-water
-      </v-icon>
      
-      <h3>Track how much you drank today!</h3>
-      <p >You drank {{water}}ml today ({{date.toLocaleDateString()}}).</p>
+     
+      <p>Track how much you drank today!</p>
+         <h2 >You drank <b>{{water}}ml</b> today <br>({{date.toLocaleDateString()}}).</h2>
 
-      <v-btn   color="primary"
-               elevation="2" @click="drink">
-        drink
+     
+   
+      <v-btn   color="primary" variant="outlined" class='drinkBtn'
+               elevation="5" @click="drink">
+        <v-icon elevation='14' @click="drink"  style="font-size:7rem;" color='accent' >mdi-cup-water
+      </v-icon>
       </v-btn>
 
     </v-responsive>
@@ -49,11 +50,15 @@ function today() {
 </script>
 
 <style>
-h1 {
-  margin: 2.5rem;
+h2 {
+  margin: 2rem;
 }
 h3, p {
-  margin: 1rem;
+  margin: 2rem;
+}
+
+.drinkBtn {
+ height: 8rem !important;
 }
 
 </style>

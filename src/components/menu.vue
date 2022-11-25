@@ -1,9 +1,8 @@
 <template>
-  <v-menu>
+  <v-menu >
     <template v-slot:activator="{ props }">
       <v-app-bar-nav-icon color="primary" v-bind="props"> </v-app-bar-nav-icon>
-    </template>
-
+    </template> 
     <v-list>
         <v-list-item v-for="(item, i) in items" :key="i" :class="i === state? 'active': ''">
           <v-list-item-title @click="$emit('select', item?.navigateTo)">{{
