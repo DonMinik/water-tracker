@@ -7,7 +7,7 @@
       </v-icon>
      
       <h3>Track how much you drank today!</h3>
-      <p >You drank {{water}} today ({{date.toLocaleDateString()}}).</p>
+      <p >You drank {{water}}ml today ({{date.toLocaleDateString()}}).</p>
 
       <v-btn   color="primary"
                elevation="2" @click="drink">
@@ -24,11 +24,11 @@ import { ref } from 'vue'
 import useLocalStorage from '../utils/useLocalStorage'
 let date = today()
 let water = dailyWaterStorage()
-
-
+const size = useLocalStorage('size', 200)
+console.log(size.value)
 function drink() {
   updateDate(); 
-  water.value++;
+  water.value = water.value + size.value;
 }
 
 function updateDate() {
@@ -40,7 +40,7 @@ function updateDate() {
 }
 
 function dailyWaterStorage() {
-  return useLocalStorage(`water-${date.toDateString()}`, '0')
+  return useLocalStorage(`water-${date.toDateString()}`, 0)
 } 
 
 function today() {
