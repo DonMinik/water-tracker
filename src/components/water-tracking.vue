@@ -18,7 +18,6 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
   import useLocalStorage from '@/utils/useLocalStorage'
   import {HistoryEntry} from '@/utils/model'
 

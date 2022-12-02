@@ -1,6 +1,6 @@
 <template>
 <h1>Edit Trackings</h1>
- <v-table>
+ <v-table class='history-table'>
     <thead>
       <tr>
         <th class="text-left">
@@ -20,17 +20,53 @@
         <td>{{ item.date }}</td>
         <td>{{ item.water }}</td>
         <td>
-            <v-icon   small color='accent' >
+            <v-icon   small color='accent' @click="edit(item)">
             mdi-lead-pencil
       </v-icon>
         </td>
       </tr>
     </tbody>
   </v-table>
+    <v-dialog class="dialog"
+      v-model="dialog"
+    >
+      <v-card>
+        <v-text-field type='number' label="Water drunken" v-model='changedWater'></v-text-field>
+
+        <v-card-actions>
+          <v-btn color="secondary" @click="dialog = false">Close</v-btn>
+          <v-btn color="primary"  @click="updateHistory()">Save</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 </template>
 <script setup lang='ts'>
 
-import useLocalStorage from '@/utils/useLocalStorage'
-let history = useLocalStorage('history', [])
+  import useLocalStorage from '@/utils/useLocalStorage'
+  import { ref } from 'vue'
+
+  let history = useLocalStorage('history', [])
+  let dialog = ref(false);
+  let entryToChange: HistoryEntry;
+  let changedWater: number;
+
+  function edit (entry: HistoryEntry) {
+    entryToChange = entry
+    changedWater = entry.water
+    dialog.value = true;
+  }
+
+  function updateHistory() {
+    dialog.value = false;
+    let updatedHistory = history.value;
+    let entry = updatedHistory.find((entry: HistoryEntry) => entry.date === entryToChange.date);
+    entry.water = changedWater;
+    history.value = updatedHistory
+  }
 
 </script>
+<style>
+.dialog {
+
+}
+</style>
