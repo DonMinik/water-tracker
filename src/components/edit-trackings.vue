@@ -31,7 +31,7 @@
       v-model="dialog"
     >
       <v-card>
-        <v-text-field type='number' label="Water drunken" v-model='changedWater'></v-text-field>
+        <v-text-field type='number' label="Water drunken" v-model.number='changedWater'></v-text-field>
 
         <v-card-actions>
           <v-btn color="secondary" @click="dialog = false">Close</v-btn>
