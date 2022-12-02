@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang='ts'>
-import useLocalStorage from '../utils/useLocalStorage'
+import useLocalStorage from '@/utils/useLocalStorage'
 
 let size = useLocalStorage('size', 200)
 </script>

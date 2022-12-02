@@ -5,7 +5,7 @@
      
      
       <p>Track how much you drank today!</p>
-         <h2 >You drank <b>{{waterOfToday()}}ml</b> today <br>({{date.toLocaleDateString()}}).</h2>
+         <h2 >You drank <b>{{waterOfToday()}} ml</b> today <br>({{date.toLocaleDateString()}}).</h2>
    
       <v-btn   color="primary" variant="outlined" class='drinkBtn'
                elevation="5" @click="drink">
@@ -19,21 +19,21 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import useLocalStorage from '../utils/useLocalStorage'
-import {HistoryEntry} from '../utils/model'
+import useLocalStorage from '@/utils/useLocalStorage'
+import {HistoryEntry} from '@/utils/model'
 
 let date = today()
 let history = useLocalStorage('history', [{date: date.toDateString(), water: 0 }])
 const size = useLocalStorage('size', 200)
 
 function waterOfToday(): HistoryEntry {
-  return history.value.find(entry => entry.date === date.toDateString())?.water;
+  return history.value.find((entry: HistoryEntry) => entry.date === date.toDateString())?.water;
 }
 
 function drink() {
   updateDate(); 
   let updatedHistory = history.value;
-  let entry = updatedHistory.find(entry => entry.date === date.toDateString());
+  let entry = updatedHistory.find((entry: HistoryEntry) => entry.date === date.toDateString());
   entry.water += size.value;
   history.value = updatedHistory
 }

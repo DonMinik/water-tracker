@@ -1,6 +1,7 @@
 <template>
+<h1>foo</h1>
   <v-menu >
-    <template v-slot:activator="{ props }">
+ <!--   <template v-slot:activator="{ props }">
       <v-app-bar-nav-icon color="primary" v-bind="props"> </v-app-bar-nav-icon>
     </template> 
     <v-list>
@@ -9,21 +10,18 @@
             item.title
           }}</v-list-item-title>
         </v-list-item>
-    </v-list>
-  </v-menu>
+    </v-list> -->
+  </v-menu> 
 </template>
 
 <script setup lang="ts">
-import { NavigationState } from '@/utils/navigation.types.ts';
+import { NavigationState } from '@/utils/navigation.types';
 import { ref } from 'vue'
-const props = defineProps({
-  state: NavigationState
-});
+const props = defineProps<{ state: NavigationState}>();
 
 const emit = defineEmits(['select']);
 
 const selected = ref(1)
-console.log('menu', props.state)
 const items = [
   { title: 'Home', navigateTo: NavigationState.HOME },
   { title: 'Settings', navigateTo: NavigationState.SETTINGS },

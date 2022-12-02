@@ -21,7 +21,7 @@ import WaterTracking from '@/components/water-tracking.vue'
 import Settings from '@/components/settings.vue'
 import EditTrackings from '@/components/edit-trackings.vue'
 
-import {NavigationState} from '@/utils/navigation.types.ts'
+import {NavigationState} from '@/utils/navigation.types'
 
 let navigationState = ref(NavigationState.HOME);
 

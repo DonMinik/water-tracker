@@ -30,7 +30,7 @@
 </template>
 <script setup lang='ts'>
 
-import useLocalStorage from '../utils/useLocalStorage'
+import useLocalStorage from '@/utils/useLocalStorage'
 let history = useLocalStorage('history', [])
 
 </script>
