@@ -8,3 +8,8 @@ import useLocalStorage from '../utils/useLocalStorage'
 
 let size = useLocalStorage('size', 200)
 </script>
+<style>
+h1 {
+  margin: 1rem 0.5rem;
+}
+</style>

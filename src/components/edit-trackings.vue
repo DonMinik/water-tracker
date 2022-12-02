@@ -29,12 +29,8 @@
   </v-table>
 </template>
 <script setup lang='ts'>
-//TODO: load history
-let history = [
-  {date: '2022-11-13', water: 15},
-  
-  {date: '2022-04-05', water: 0},
-  
-  {date: '2022-12-17', water: 1}
-]
+
+import useLocalStorage from '../utils/useLocalStorage'
+let history = useLocalStorage('history', [])
+
 </script>
