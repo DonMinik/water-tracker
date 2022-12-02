@@ -15,6 +15,7 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
+  base: '/water-tracker/',
   define: { 'process.env': {} },
   resolve: {
     alias: {
