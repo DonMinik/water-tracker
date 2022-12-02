@@ -1,7 +1,7 @@
 <template>
 <h1>foo</h1>
   <v-menu >
- <!--   <template v-slot:activator="{ props }">
+    <template v-slot:activator="{ props }">
       <v-app-bar-nav-icon color="primary" v-bind="props"> </v-app-bar-nav-icon>
     </template> 
     <v-list>
@@ -10,7 +10,7 @@
             item.title
           }}</v-list-item-title>
         </v-list-item>
-    </v-list> -->
+    </v-list> 
   </v-menu> 
 </template>
 
