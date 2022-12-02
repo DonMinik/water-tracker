@@ -21,7 +21,7 @@
   import useLocalStorage from '@/utils/useLocalStorage'
   import {HistoryEntry} from '@/utils/model'
   
-  const emit = defineEmits(['notifactionSettingsChanged']);
+  const emit = defineEmits(['drink']);
 
   let date = today()
   let history = useLocalStorage('history', [{date: date.toDateString(), water: 0 }])

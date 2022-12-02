@@ -24,11 +24,13 @@ export function initNotification(currentNotificationRunnerId?: number) {
   }
 
   function createNotification() {
+    console.log('create notification')
     const goal = useLocalStorage('goal', 2000)
     const history = useLocalStorage('history', []);
     const today = new Date(Date.now());
     const isReachedGoal = history.value.find((entry: HistoryEntry) => entry.date === today.toDateString())?.water >= goal.value;
     if(!isReachedGoal) {
+      console.log('notify')
       new Notification("Drank enough? ;)")
     }
   }
