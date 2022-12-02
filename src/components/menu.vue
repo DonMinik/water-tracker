@@ -1,5 +1,4 @@
 <template>
-<h1>foo</h1>
   <v-menu >
     <template v-slot:activator="{ props }">
       <v-app-bar-nav-icon color="primary" v-bind="props"> </v-app-bar-nav-icon>
