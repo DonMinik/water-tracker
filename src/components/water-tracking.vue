@@ -18,61 +18,60 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import useLocalStorage from '@/utils/useLocalStorage'
-import {HistoryEntry} from '@/utils/model'
+  import { ref } from 'vue'
+  import useLocalStorage from '@/utils/useLocalStorage'
+  import {HistoryEntry} from '@/utils/model'
 
-let date = today()
-let history = useLocalStorage('history', [{date: date.toDateString(), water: 0 }])
-const size = useLocalStorage('size', 200)
-const goal = useLocalStorage('goal', 2000)
-let goalAchievement = 0;
-goalAchievement = calculateGoalAchievement()
-
-function waterOfToday(): number {
-  return history.value.find((entry: HistoryEntry) => entry.date === date.toDateString())?.water;
-}
-
-function drink() {
-  updateDate(); 
-  let updatedHistory = history.value;
-  let entry = updatedHistory.find((entry: HistoryEntry) => entry.date === date.toDateString());
-  entry.water += size.value;
-  history.value = updatedHistory
+  let date = today()
+  let history = useLocalStorage('history', [{date: date.toDateString(), water: 0 }])
+  const size = useLocalStorage('size', 200)
+  const goal = useLocalStorage('goal', 2000)
+  let goalAchievement = 0;
   goalAchievement = calculateGoalAchievement()
-}
 
-function calculateGoalAchievement(): number {
-  const _goalAchievement = waterOfToday() / goal.value * 100
-  return _goalAchievement > 100 ? 100 : _goalAchievement;
-}
-
-function updateDate() {
-  const now = today();
-  if (date.toDateString() !== now.toDateString()) {
-    date = now;
+  function waterOfToday(): number {
+    return history.value.find((entry: HistoryEntry) => entry.date === date.toDateString())?.water;
   }
-}
 
-function today() {
-  return new Date(Date.now());
-}
+  function drink() {
+    updateDate(); 
+    let updatedHistory = history.value;
+    let entry = updatedHistory.find((entry: HistoryEntry) => entry.date === date.toDateString());
+    entry.water += size.value;
+    history.value = updatedHistory
+    goalAchievement = calculateGoalAchievement()
+  }
+
+  function calculateGoalAchievement(): number {
+    const _goalAchievement = waterOfToday() / goal.value * 100
+    return _goalAchievement > 100 ? 100 : _goalAchievement;
+  }
+
+  function updateDate() {
+    const now = today();
+    if (date.toDateString() !== now.toDateString()) {
+      date = now;
+    }
+  }
+
+  function today() {
+    return new Date(Date.now());
+  }
 </script>
 
 <style>
-h2 {
-  margin: 2rem;
-}
-h3, p {
-  margin: 2rem;
-}
+  h2 {
+    margin: 2rem;
+  }
+  h3, p {
+    margin: 2rem;
+  }
 
-.drinkBtn {
- height: 8rem !important;
-}
+  .drinkBtn {
+  height: 8rem !important;
+  }
 
-.progress {
-  margin: 1rem
-}
-
+  .progress {
+    margin: 1rem
+  }
 </style>
