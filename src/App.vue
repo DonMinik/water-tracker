@@ -7,7 +7,7 @@
         <v-app-bar-title>Water Tracker</v-app-bar-title>
       </v-app-bar>
       <WaterTracking v-if="navigationState === NavigationState.HOME"/>
-      <Settings v-if="navigationState === NavigationState.SETTINGS"/> 
+      <Settings v-if="navigationState === NavigationState.SETTINGS" @notifactionSettingsChanged='updateNotificationRunner'/> 
       <EditTrackings v-if='navigationState === NavigationState.EDIT_TRACKINGS' /> 
     </v-main>
   </v-app>
@@ -20,6 +20,7 @@ import Menu from '@/components/menu.vue'
 import WaterTracking from '@/components/water-tracking.vue'
 import Settings from '@/components/settings.vue'
 import EditTrackings from '@/components/edit-trackings.vue'
+import {initNotification} from '@/utils/notification'
 
 import {NavigationState} from '@/utils/navigation.types'
 
@@ -27,5 +28,10 @@ let navigationState = ref(NavigationState.HOME);
 
 function selectNavigation(event: NavigationState) {
   navigationState.value = event
+}
+let notificationRunnerId = initNotification()
+
+function updateNotificationRunner() {
+  initNotification(notificationRunnerId)
 }
 </script>
