@@ -9,15 +9,14 @@
     item-title="title"
     item-value="value"
     return-object
-    @change="$emit('notifactionSettingsChanged')"
+    @update:modelValue="$emit('notifactionSettingsChanged')"
   ></v-select>
 </template>
 
 <script setup lang='ts'>
   import useLocalStorage from '@/utils/useLocalStorage'
 
-const emit = defineEmits(['notifactionSettingsChanged']);
-
+  const emit = defineEmits(['notifactionSettingsChanged']);
 
   let size = useLocalStorage('size', 200)
   let goal = useLocalStorage('goal', 2000)

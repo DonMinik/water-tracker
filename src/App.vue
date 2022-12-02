@@ -6,7 +6,7 @@
         <Menu  :state="navigationState" @select='selectNavigation'/> 
         <v-app-bar-title>Water Tracker</v-app-bar-title>
       </v-app-bar>
-      <WaterTracking v-if="navigationState === NavigationState.HOME"/>
+      <WaterTracking v-if="navigationState === NavigationState.HOME" @drink='updateNotificationRunner'/>
       <Settings v-if="navigationState === NavigationState.SETTINGS" @notifactionSettingsChanged='updateNotificationRunner'/> 
       <EditTrackings v-if='navigationState === NavigationState.EDIT_TRACKINGS' /> 
     </v-main>
@@ -32,6 +32,7 @@ function selectNavigation(event: NavigationState) {
 let notificationRunnerId = initNotification()
 
 function updateNotificationRunner() {
+  console.log('renew notification runner')
   initNotification(notificationRunnerId)
 }
 </script>

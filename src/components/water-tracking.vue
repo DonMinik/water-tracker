@@ -20,6 +20,8 @@
 <script setup lang="ts">
   import useLocalStorage from '@/utils/useLocalStorage'
   import {HistoryEntry} from '@/utils/model'
+  
+  const emit = defineEmits(['notifactionSettingsChanged']);
 
   let date = today()
   let history = useLocalStorage('history', [{date: date.toDateString(), water: 0 }])
@@ -39,6 +41,7 @@
     entry.water += size.value;
     history.value = updatedHistory
     goalAchievement = calculateGoalAchievement()
+    emit('drink')
   }
 
   function calculateGoalAchievement(): number {
