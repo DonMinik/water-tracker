@@ -43,6 +43,7 @@
 <script setup lang='ts'>
 
   import useLocalStorage from '@/utils/useLocalStorage'
+  import {HistoryEntry} from '@/utils/model'
   import { ref } from 'vue'
 
   let history = useLocalStorage('history', [])
