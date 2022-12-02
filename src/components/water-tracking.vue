@@ -29,7 +29,7 @@ const goal = useLocalStorage('goal', 2000)
 let goalAchievement = 0;
 goalAchievement = calculateGoalAchievement()
 
-function waterOfToday(): HistoryEntry {
+function waterOfToday(): number {
   return history.value.find((entry: HistoryEntry) => entry.date === date.toDateString())?.water;
 }
 
