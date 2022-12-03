@@ -31,7 +31,16 @@
   goalAchievement = calculateGoalAchievement()
 
   function waterOfToday(): number {
-    return history.value.find((entry: HistoryEntry) => entry.date === date.toDateString())?.water;
+    let entryOfToday = history.value.find((entry: HistoryEntry) => entry.date === date.toDateString())
+    let water = 0;
+    if (entryOfToday) {
+      water = entryOfToday.water ?? 0 
+    } else {
+      let updatedHistory = history.value
+      updatedHistory.push({date: date.toDateString(), water: 0 })
+      history.value = updatedHistory
+    }
+    return water;
   }
 
   function drink() {
