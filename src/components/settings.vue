@@ -1,6 +1,6 @@
 <template>
   <h1>Settings</h1>
-  <v-text-field type='number' label="Size of your cup name" v-model.number='size'></v-text-field>
+  <v-text-field type='number' label="Size of your cup" v-model.number='size'></v-text-field>
   <v-text-field type='number' label="Your goal" v-model.number='goal'></v-text-field>
   <v-select
     label="Notification interval"
