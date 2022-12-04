@@ -9,7 +9,7 @@
       
       <v-btn   color="primary" variant="outlined" class='drinkBtn'
                elevation="5" @click="drink">
-        <v-icon elevation='14' @click="drink"  style="font-size:7rem;" color='accent' >mdi-cup-water
+        <v-icon elevation='14'  style="font-size:7rem;" color='accent' >mdi-cup-water
       </v-icon>
       </v-btn>
 
