@@ -22,6 +22,7 @@
   let goal = useLocalStorage('goal', 2000)
   let notificationInterval = useLocalStorage('notification-interval', {title: 'every hour', value: 60})
   const intervalOptions = [
+    {title: 'every minute', value: 1},
     {title: 'every 15 minutes', value: 15},
     {title: 'every 30 minutes', value: 30}, 
     {title: 'every hour', value: 60},

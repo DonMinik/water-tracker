@@ -18,9 +18,11 @@ export function initNotification(currentNotificationRunnerId?: number) {
   }
   
   function startNotificationRunner() {
-    const interval = useLocalStorage('notificationInterval', 60)
-    notificationRunnerId = setInterval(createNotification, interval.value * 60 * 1000);
-    console.log('##', notificationRunnerId)
+    const interval = useLocalStorage('notification-interval', 60)
+    
+    console.log('start notification with interval', interval.value.value)
+    notificationRunnerId = setInterval(createNotification, interval.value.value * 60 * 1000);
+    console.log('started notification runner', notificationRunnerId)
   }
 
   function createNotification() {
