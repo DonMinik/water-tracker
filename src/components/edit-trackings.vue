@@ -1,7 +1,7 @@
 <template>
 <h1>Edit Trackings</h1>
  <v-table class='history-table'     fixed-header
-height="40vh">
+height="65vh">
     <thead>
       <tr>
         <th class="text-left">
@@ -40,6 +40,7 @@ height="40vh">
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <span>You reached your goal {{goalReached}}% of the time</span>
 </template>
 <script setup lang='ts'>
 
@@ -51,6 +52,10 @@ height="40vh">
   let dialog = ref(false);
   let entryToChange: HistoryEntry;
   let changedWater: number;
+
+  const goal = useLocalStorage('goal', 2000)
+
+  let goalReached = ref(calculateGoal())
 
   function edit (entry: HistoryEntry) {
     entryToChange = entry
@@ -64,11 +69,24 @@ height="40vh">
     let entry = updatedHistory.find((entry: HistoryEntry) => entry.date === entryToChange.date);
     entry.water = changedWater;
     history.value = updatedHistory
+    calculateGoal();
+  }
+
+  function calculateGoal(): number {
+    let reached = 0;
+      history.value.forEach(entry => {
+        if(entry.water >= goal.value) {
+          reached++;
+        }
+      }
+      )
+      return Math.round(reached / history.value.length * 100)
   }
 
 </script>
 <style>
-.dialog {
+span {
+  margin: 1rem 
 
 }
 </style>
