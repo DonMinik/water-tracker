@@ -1,6 +1,7 @@
 <template>
 <h1>Edit Trackings</h1>
- <v-table class='history-table'>
+ <v-table class='history-table'     fixed-header
+height="40vh">
     <thead>
       <tr>
         <th class="text-left">
