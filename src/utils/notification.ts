@@ -3,6 +3,7 @@ import {HistoryEntry} from '@/utils/model'
 
 
 export function initNotification(currentNotificationRunnerId?: number) {
+  console.log('attempting to clear interval', currentNotificationRunnerId);
   clearInterval(currentNotificationRunnerId);
   let notificationRunnerId;
   if (!("Notification" in window)) {

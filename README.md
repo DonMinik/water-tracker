@@ -6,10 +6,11 @@ A simple water tracker app to track how much water you drank today.
 Tracking of water drunken today. Locally stored for current date.
 
 ## Ideas for improvement
-- Daily goal
+- Daily goal (/)
 - push notification if you did not drink enough to reach goal
-- history
+- history (/)
 - challange with friends
+- beer theme
 
 ## Project setup
 
