@@ -74,7 +74,7 @@ height="65vh">
 
   function calculateGoal(): number {
     let reached = 0;
-      history.value.forEach(entry => {
+      history.value.forEach((entry: HistoryEntry) => {
         if(entry.water >= goal.value) {
           reached++;
         }
