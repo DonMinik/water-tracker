@@ -79,7 +79,7 @@
   }
 
   .drinkBtn {
-  height: 8rem !important;
+  height: 9rem !important;
   }
 
   .progress {
