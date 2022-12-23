@@ -1,10 +1,10 @@
 <template>
   <v-app>
+    <v-app-bar elevation="2">
+      <Menu :state="navigationState" @select="selectNavigation" />
+      <v-app-bar-title>Water Tracker</v-app-bar-title>
+    </v-app-bar>
     <v-main>
-      <v-app-bar elevation="2">
-        <Menu :state="navigationState" @select="selectNavigation" />
-        <v-app-bar-title>Water Tracker</v-app-bar-title>
-      </v-app-bar>
       <WaterTracking
         v-if="navigationState === NavigationState.HOME"
         @drink="updateNotificationRunner"
