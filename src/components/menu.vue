@@ -27,7 +27,7 @@ const items = [
   { title: 'Edit Trackings', navigateTo: NavigationState.EDIT_TRACKINGS },
 ];
 </script>
-<style>
+<style scoped>
 .active {
   color: #6998AB;
 }

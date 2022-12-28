@@ -1,7 +1,7 @@
 <template>
 <h1>Edit Trackings</h1>
  <v-table class='history-table'     fixed-header
-height="65vh">
+    height="60vh">
     <thead>
       <tr>
         <th class="text-left">
@@ -28,19 +28,19 @@ height="65vh">
       </tr>
     </tbody>
   </v-table>
-    <v-dialog class="dialog"
-      v-model="dialog"
-    >
-      <v-card>
-        <v-text-field type='number' label="Water drunken" v-model.number='changedWater'></v-text-field>
 
-        <v-card-actions>
-          <v-btn color="secondary" @click="dialog = false">Close</v-btn>
-          <v-btn color="primary"  @click="updateHistory()">Save</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+  <v-card color="accent" class="metrics-card" >
     <span>You reached your goal {{goalReached}}% of the time</span>
+  </v-card>
+  <v-dialog class="dialog" v-model="dialog">
+    <v-card>
+      <v-text-field type='number' label="Water drunken" v-model.number='changedWater'></v-text-field>
+      <v-card-actions>
+        <v-btn color="secondary" @click="dialog = false">Close</v-btn>
+        <v-btn color="primary"  @click="updateHistory()">Save</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 <script setup lang='ts'>
 
@@ -84,9 +84,13 @@ height="65vh">
   }
 
 </script>
-<style>
-span {
-  margin: 1rem 
+<style >
+  .metrics-card {
+    margin:1rem
+  }
+  .metrics-card span {
+    margin: 1rem  
 
-}
+  }
+
 </style>

@@ -43,3 +43,8 @@ function updateNotificationRunner() {
   notificationRunnerId = initNotification(notificationRunnerId);
 }
 </script>
+<style>
+  h1 {
+    margin: 1rem 0.5rem;
+  }
+</style>

@@ -70,7 +70,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   h2 {
     margin: 2rem;
   }

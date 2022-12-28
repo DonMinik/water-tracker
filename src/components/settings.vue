@@ -30,8 +30,3 @@
     {title: 'every two hours', value: 120},
   ]
 </script>
-<style>
-  h1 {
-    margin: 1rem 0.5rem;
-  }
-</style>
