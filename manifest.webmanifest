@@ -1,7 +1,7 @@
 {
   "background_color": "#1A374D",
   "description": "Track how much you drank today",
-  "display": "fullscreen",
+  "display": "standalone",
   "icons": [
     {
       "src": "icon.png",
